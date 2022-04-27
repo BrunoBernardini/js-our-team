@@ -8,6 +8,11 @@ Utilizzare gli input presenti nella pagina per permettere all’utente di aggiun
 
 const teamContainer = document.querySelector(".team-container");
 
+const inputName = document.getElementById("name");
+const inputRole = document.getElementById("role");
+const inputImage = document.getElementById("image");
+const addBtn = document.getElementById("addMemberButton");
+
 const teamCardList = [
   {
     nome: "Wayne Barnett",
@@ -50,6 +55,23 @@ for(let i=0; i<teamCardList.length; i++){
                                 <div class="card-text">
                                   <h3>${teamCard.nome}</h3>
                                   <p>${teamCard.ruolo}</p>
+                                </div>
+                              </div>`;
+}
+
+addBtn.addEventListener("click", addMember);
+
+function addMember(){
+  const cardName = inputName.value;
+  const cardRole = inputRole.value;
+  const cardImage = inputImage.value;
+  teamContainer.innerHTML += `<div class="team-card">
+                                <div class="card-image">
+                                  <img src="img/${cardImage}" alt="${cardName}"/>
+                                </div>
+                                <div class="card-text">
+                                  <h3>${cardName}</h3>
+                                  <p>${cardRole}</p>
                                 </div>
                               </div>`;
 }
